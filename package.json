@@ -4,7 +4,7 @@
   "description": "JavaScript Library containing websocket server connection modules and 2d and 3d visualisation modules.",
   "main": "src/MRPTLib.js",
   "scripts": {
-    "test": "mocha --compilers js:babel-core/register tests/MRPTLib.test.js -w",
+    "test": "mocha --compilers js:babel-core/register tests/*.test.js -w",
     "prebuild": "rimraf dist",
     "build": "npm-run-all --parallel build:*",
     "build:main": "babel --copy-files --out-dir dist --ignore *.test.js src",

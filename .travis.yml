@@ -8,10 +8,12 @@ notifications:
   email: false
 
 install:
+  - npm install --only=dev
   - npm install
 
 before_script:
   - npm prune
+
 script:
   - npm run build
 
