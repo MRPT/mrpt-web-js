@@ -1,8 +1,7 @@
 var expect = require('chai').expect
-// var MRPTLib = require('../src/MRPTLib')
 import MRPTLIB from '../src/MRPTLib'
-describe('MRPT-LIB', function() {
-  const lib = new MRPTLIB.WS({url:"ws://127.0.0.1:8080"});
+const lib = new MRPTLIB.WS({url:"ws://127.0.0.1:8080"});
+describe('core-tests', function() {
   describe('check-connection', function() {
       it('should connect with ws-server on the port 8080 on local host', function() {
         console.log(lib.isConnected);
@@ -37,6 +36,32 @@ describe('MRPT-LIB', function() {
           });
         }
       })
+    })
+  })
+
+  describe('check topic pub/sub/adv', function() {
+    it('should publish',function() {
+      // console.log('## ws connected,',lib.isConnected);
+      const goal = new MRPTLIB.Topic({
+        ws : lib,
+        name: '/cmd_vel',
+        messageType : 'geometry_msgs/Twist'
+      });
+
+      const pose = new MRPTLIB.Message({
+        linear : {
+          x : 0.1,
+          y : 0.2,
+          z : 0.3
+        },
+        angular : {
+          x : -0.1,
+          y : -0.2,
+          z : -0.3
+        }
+      });
+      goal.publish(pose);
+      goal.unadvertise();
     })
 
   })

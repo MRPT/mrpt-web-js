@@ -26,11 +26,11 @@ export default class Service extends EventEmitter2 {
      * Calls the service. Returns the service response in the
      * callback.
      *
-     * @param request - the ROSLIB.ServiceRequest to send
+     * @param request - the MRPTLIB.ServiceRequest to send
      * @param callback - function with paramsL:
      *    *response - the response from the service request
      * @param failedCallback - the callback function when the service call failed (optiona). Params:
-     *    * error - the error message reported by ROS
+     *    * error - the error message reported by server
      */
     callService(request, callback, failedCallback) {
       const serviceCallId = `call_service:${this.name}:${++this.ws.idCounter}`;

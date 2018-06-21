@@ -7,6 +7,6 @@ export default class Message {
      * @param {Object} msg : message to be stored in object
      */
     constructor(msg) {
-        this.msg = msg;
+        Object.assign(this, msg);
     }
 }

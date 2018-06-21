@@ -77,10 +77,10 @@ export default class SocketAdapter{
       },
 
       /**
-       * Parses message responses from rosbridge and sends to the
+       * Parses message responses from server and sends to the
        * appropriate topic, service, or param.
        *
-       * @param message - the raw JSON message from rosbridge.
+       * @param message - the raw JSON message from server.
        * @memberof socketAdapter
        */
       onmessage(data) {
