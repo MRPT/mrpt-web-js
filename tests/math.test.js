@@ -1,4 +1,4 @@
-var expect = require('chai').expect
+import { expect } from 'chai'
 import MRPTLIB from '../src/MRPTLib'
 describe('math-ds-tests', function() {
 

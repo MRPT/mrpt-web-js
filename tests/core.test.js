@@ -1,6 +1,8 @@
-var expect = require('chai').expect
+import { expect } from 'chai'
 import MRPTLIB from '../src/MRPTLib'
+
 const lib = new MRPTLIB.WS({url:"ws://127.0.0.1:8080"});
+
 describe('core-tests', function() {
   describe('check-connection', function() {
       it('should connect with ws-server on the port 8080 on local host', function() {
@@ -41,7 +43,6 @@ describe('core-tests', function() {
 
   describe('check topic pub/sub/adv', function() {
     it('should publish',function() {
-      // console.log('## ws connected,',lib.isConnected);
       const goal = new MRPTLIB.Topic({
         ws : lib,
         name: '/cmd_vel',
@@ -63,6 +64,32 @@ describe('core-tests', function() {
       goal.publish(pose);
       goal.unadvertise();
     })
+    it('should be able to subscribe to topics', function() {
+      const listener1 = new MRPTLIB.Topic({
+        ws : lib,
+        name : '/path',
+        messageType : 'dummy1'
+      });
 
+      listener1.subscribe(function(message) {
+        console.log('Received message on ' + listener1.name + ' : ',message);
+      });
+      const listener2 = new MRPTLIB.Topic({
+        ws : lib,
+        name : '/pose',
+        messageType : 'dummy2'
+      });
+      listener2.subscribe(function(message) {
+        console.log('Received message on' + listener2.name + ':', message);
+      });
+      const listener3 = new MRPTLIB.Topic({
+        ws : lib,
+        name : '/pose',
+        messageType : 'dummy2'
+      });
+      listener3.subscribe(function(message) {
+        console.log('Received message on' + listener3.name + ':', message);
+      });
+    })
   })
 })

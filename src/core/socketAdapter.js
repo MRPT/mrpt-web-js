@@ -1,4 +1,4 @@
-const WebSocket = require('ws');
+import WebSocket from 'ws'
 /**
  * Events listener for a WebSocket to a JS Client.
  * Sets up Messages for a given topic to trigger

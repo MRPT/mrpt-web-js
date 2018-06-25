@@ -1,9 +1,9 @@
 import SocketAdapter from './socketAdapter'
 import Service from './Service'
 import ServiceRequest from './ServiceRequest'
+import WebSocket from 'ws'
+import {EventEmitter2} from 'eventemitter2'
 
-const WebSocket = require('ws');
-const EventEmitter2 = require('eventemitter2').EventEmitter2;
 export default class WS extends EventEmitter2 {
     /**
      * @constructor
@@ -34,6 +34,10 @@ export default class WS extends EventEmitter2 {
      */
     connect(url) {
         this.socket = Object.assign(new WebSocket(url), SocketAdapter.socketAdapter(this));
+        if (this.socket.readyState !== 'undefined' && this.socket.readyState === 1)
+        {
+          this.socket.isConnected = true;
+        }
     }
     /**
      * Disconnect from the webserver

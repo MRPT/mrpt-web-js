@@ -1,3 +1,10 @@
-const THREE = require('three');
+import MRPTLIB from '../src/MRPTLib'
 const expect = require('chai').expect
-// describe('The THREE object', function(){})
+
+describe('test _3D lib', function() {
+  describe('models', function() {
+    it('arrow', function() {
+
+    })
+  })
+})
