@@ -1,0 +1,31 @@
+<html>
+  <head lang="en">
+    <meta charset="utf-8"/>
+    <title>WebGL RenderCheck</title>
+    <script src="https://threejs.org/build/three.min.js"></script>
+  </head>
+  <body>
+    <div id="webgl-canvas"></div>
+    <script src="./build/MRPTLib.umd.js"></script>
+
+    <script>
+      console.log("The script seems to load properly.");
+      const MRPTLIB = MRPTlib.default;
+      const scene = new MRPTLIB.Scene({
+        divID: "webgl-canvas",
+        width: 800,
+        height: 600,
+        cameraPose :{
+          x : -3,
+          y: -3,
+          z: 5
+        }
+      });
+      /**
+       * Try out manipulations through browser console like,
+       * scene.addObject(new MRPTLIB.model.Arrow());
+       */
+    </script>
+
+  </body>
+</html>

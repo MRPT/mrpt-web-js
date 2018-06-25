@@ -1,5 +1,5 @@
 import MRPTLIB from '../src/MRPTLib'
-const expect = require('chai').expect
+import { expect } from 'chai'
 
 describe('test _3D lib', function() {
   describe('models', function() {
