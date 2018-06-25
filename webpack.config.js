@@ -9,5 +9,8 @@ module.exports = {
         path: path.resolve(__dirname, './build'),
         library: 'MRPTlib'
     },
-    devtool: 'eval'
+    devtool: 'eval',
+    resolve: {
+      modules: [path.resolve(__dirname, 'fallback_modules'), 'node_modules']
+    }
 }
