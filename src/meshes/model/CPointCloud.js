@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-export default class PointCloud extends THREE.Points {
+export default class CPointCloud extends THREE.Points {
   /**
    * @constructor
    * @param {Object} options - with the possible keys

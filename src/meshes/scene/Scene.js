@@ -46,11 +46,14 @@ export default class Scene {
     // add axes
     this.axes = new THREE.AxesHelper(20);
     this.processAxes(true);
-
+    // rotation of PI/2 about x-axis in anticlockwise direction
+    // stored in q
+    let e = new THREE.Euler(Math.PI/2,0,0);
+    let q = new THREE.Quaternion();
+    q.setFromEuler(e);
     // add ground plane
-    this.ground = new THREE.Mesh(new THREE.PlaneGeometry(50, 50),
-                                new THREE.MeshBasicMaterial({color: 0xcccccc}));
-
+    this.ground = new THREE.GridHelper(100, 100, 0xcccccc, 0xcccccc);
+    this.ground.quaternion.copy(q);
     this.processGround(true);
     //setup the camera
     this.camera = new THREE.PerspectiveCamera(70, width/height, 0.1, 1000);
