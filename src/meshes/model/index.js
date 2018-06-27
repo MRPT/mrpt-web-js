@@ -6,6 +6,8 @@ import CCylinder from './CCylinder'
 import CPolyhedron from './CPolyhedron'
 import COccupancyGrid from './COccupancyGrid'
 import Path from './Path'
+import CornerXYZSimple from './CornerXYZSimple'
+import CornerXYZ from './CornerXYZ'
 export {
   Arrow,
   SphereMarker,
@@ -14,5 +16,7 @@ export {
   CCylinder,
   CPolyhedron,
   COccupancyGrid,
+  CornerXYZSimple,
+  CornerXYZ,
   Path
 }

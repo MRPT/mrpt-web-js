@@ -11,14 +11,14 @@ export default class Arrow extends THREE.Mesh {
    */
   constructor(options = {}) {
     let origin, destination, direction, headLength;
-    if(!options.x0 || !options.y0 || !options.z0)
+    if(options.x0 === undefined || options.y0 === undefined || options.z0 === undefined)
     {
       origin = new THREE.Vector3(0, 0, 0);
     }
     else {
       origin = new THREE.Vector3(options.x0, options.y0, options.z0);
     }
-    if(!options.x1 || !options.y1 || !options.z1)
+    if(options.x1 === undefined || options.y1 === undefined || options.z1 === undefined)
     {
       destination = new THREE.Vector3(1, 0, 0);
     }
@@ -59,7 +59,7 @@ export default class Arrow extends THREE.Mesh {
     geometry.merge(coneGeometry);
 
     super(geometry, material);
-
+    this.length = destination.clone().sub(origin).length();
     this.setPosition(origin);
     this.setDirection(direction);
   }
@@ -88,7 +88,10 @@ export default class Arrow extends THREE.Mesh {
    * @param length - the new length of the arrow
    */
   setLength(length) {
-    this.scale.set(length, length, length);
+    if(this.length) {
+      this.scale.set(length/this.length, length/this.length, length/this.length);
+      this.length = length;
+    }
   };
 
   /**
