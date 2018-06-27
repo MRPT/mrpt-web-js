@@ -4,3 +4,4 @@ build
 .idea
 .babelrc
 npm-debug.log
+.vscode

@@ -1,10 +1,18 @@
 import Arrow from './Arrow'
 import SphereMarker from './SphereMarker'
 import CubeMarker from './CubeMarker'
-import PointCloud from './PointCloud'
+import CPointCloud from './CPointCloud'
+import CCylinder from './CCylinder'
+import CPolyhedron from './CPolyhedron'
+import COccupancyGrid from './COccupancyGrid'
+import Path from './Path'
 export {
   Arrow,
   SphereMarker,
   CubeMarker,
-  PointCloud
+  CPointCloud,
+  CCylinder,
+  CPolyhedron,
+  COccupancyGrid,
+  Path
 }
