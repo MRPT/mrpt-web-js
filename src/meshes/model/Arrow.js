@@ -106,7 +106,7 @@ export default class Arrow extends THREE.Mesh {
   /*
   * Free memory of elements in this marker.
   */
-  dispose = function() {
+  dispose() {
     if (this.geometry !== undefined) {
         this.geometry.dispose();
     }
