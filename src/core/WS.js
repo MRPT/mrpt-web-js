@@ -40,6 +40,19 @@ export default class WS extends EventEmitter2 {
         }
     }
     /**
+     * Alternate to connect this takes a socket
+     * and keeps the reference in the class for making
+     * different calls. Only native websocket is supported.
+     * @param {WebSocket} $socket
+     */
+    wrap($socket) {
+      this.socket = Object.assign($socket, SocketAdapter.socketAdapter(this));
+      if (this.socket.readyState !== 'undefined' && this.socket.readyState === 1)
+      {
+        this.socket.isConnected = true;
+      }
+    }
+    /**
      * Disconnect from the webserver
      */
     close() {
