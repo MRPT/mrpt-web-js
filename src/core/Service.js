@@ -42,7 +42,7 @@ export default class Service extends EventEmitter2 {
               failedCallback(message.result);
             }
           } else if (typeof callback === 'function') {
-            callback(new ServiceResponse(message.result));
+            callback(message.result); // No Service Response used as it does not support Array
           }
         });
       }
