@@ -19,7 +19,7 @@ export default TrackballControls = function ( object, domElement ) {
 	this.object = object;
 	this.domElement = ( domElement !== undefined ) ? domElement : document;
 
-	// API
+  // API
 
 	this.enabled = true;
 
@@ -91,7 +91,7 @@ export default TrackballControls = function ( object, domElement ) {
 
 	this.handleResize = function () {
 
-		if ( this.domElement === document ) {
+    if ( this.domElement === document ) {
 
 			this.screen.left = 0;
 			this.screen.top = 0;
@@ -102,13 +102,13 @@ export default TrackballControls = function ( object, domElement ) {
 
 			var box = this.domElement.getBoundingClientRect();
 			// adjustments come from similar code in the jquery offset() function
-			var d = this.domElement.ownerDocument.documentElement;
-			this.screen.left = box.left + window.pageXOffset - d.clientLeft;
-			this.screen.top = box.top + window.pageYOffset - d.clientTop;
+      var d = this.domElement.ownerDocument.documentElement;
+			this.screen.left = box.left + (window.pageXOffset || 0) - (d.clientLeft || 0);
+			this.screen.top = box.top + (window.pageYOffset || 0) - (d.clientTop || 0);
 			this.screen.width = box.width;
 			this.screen.height = box.height;
 
-		}
+    }
 
 	};
 
@@ -384,7 +384,7 @@ export default TrackballControls = function ( object, domElement ) {
 
 	function keydown( event ) {
 
-		if ( _this.enabled === false ) return;
+    if ( _this.enabled === false ) return;
 
 		window.removeEventListener( 'keydown', keydown );
 
@@ -425,7 +425,6 @@ export default TrackballControls = function ( object, domElement ) {
 		if ( _this.enabled === false ) return;
 
 		event.preventDefault();
-		event.stopPropagation();
 
 		if ( _state === STATE.NONE ) {
 

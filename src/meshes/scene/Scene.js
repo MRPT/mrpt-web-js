@@ -67,11 +67,11 @@ export default class Scene {
       alpha : alpha
     });
     this.renderer.setSize(width, height);
-
+    this.parent = document.getElementById(divID);
     // add the renderer to the DOM element
     document.getElementById(divID).appendChild(this.renderer.domElement);
     // Camera controls , based on three-trackballcontrols
-    this.controls = new TrackballControls(this.camera);
+    this.controls = new TrackballControls(this.camera, this.renderer.domElement);
     //configure
     this.controls.rotateSpeed = 1.0;
     this.controls.zoomSpeed = 1.0;
@@ -163,5 +163,8 @@ export default class Scene {
     catch(error){
       console.error(error);
     }
+  }
+  removeScene() {
+    this.parent.removeChild(this.renderer.domElement);
   }
 }
