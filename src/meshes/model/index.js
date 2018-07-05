@@ -8,6 +8,7 @@ import COccupancyGrid from './COccupancyGrid'
 import Path from './Path'
 import CornerXYZSimple from './CornerXYZSimple'
 import CornerXYZ from './CornerXYZ'
+import CPlanarLaserScan from './CPlanarLaserScan'
 export {
   Arrow,
   SphereMarker,
@@ -18,5 +19,6 @@ export {
   COccupancyGrid,
   CornerXYZSimple,
   CornerXYZ,
-  Path
+  Path,
+  CPlanarLaserScan
 }
