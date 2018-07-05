@@ -1,4 +1,4 @@
-sudo: false
+sudo: true
 
 cache:
   directories:
@@ -8,6 +8,7 @@ notifications:
   email: false
 
 install:
+  - npm i -g npm
   - npm install --only=dev
   - npm install
 

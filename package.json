@@ -7,7 +7,7 @@
     "test": "mocha --compilers js:babel-core/register tests/*.test.js -w",
     "prebuild": "rimraf dist",
     "build": "npm-run-all build:*",
-    "build:main": "babel --copy-files --out-dir dist --ignore *.test.js src",
+    "build:main": "./node_modules/.bin/babel --copy-files --out-dir dist --ignore *.test.js src",
     "build:umd": "webpack --output-filename MRPTLib.umd.js",
     "build:umd.min": "webpack --output-filename MRPTLib.umd.min.js -p"
   },
