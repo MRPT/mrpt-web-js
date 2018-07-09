@@ -153,9 +153,9 @@ export default class CPlanarLaserScan extends THREE.Group {
   setParameters(options, isRender = true)
   {
     this.n = options.n;
-    this.xs = options.xs;
-    this.ys = options.ys;
-    this.zs = options.zs;
+    this.xs = options.xs || [];
+    this.ys = options.ys || [];
+    this.zs = options.zs || [];
     if (isRender) {
       this.render();
     }
@@ -197,5 +197,29 @@ export default class CPlanarLaserScan extends THREE.Group {
     if (isRender) {
       this.render();
     }
+  }
+  /**
+   *
+   * @param {Object} message - with the following keys
+   * @param n - the number of points
+   * @param xs - array containing the x coords of points
+   * @param ys - arrau containing the y coords of points
+   * @param zs - array containing the z coords of points
+   * @param enable_line - boolean to enable line in the planar scan
+   * @param enable_points - boolean to enable points in the planar scan
+   * @param enable_surface - boolean to enable surface in the planar scan
+   * @param line_width - default: 1, set the line width
+   * @param points_width - default: 1, set the points width
+   * @param line_color - default: {r:1.0,g:0.0,b:0.0,a:0.5}, set the line color
+   * @param points_color - default: {r:1.0,g:0,b:0,a:1}, set the points color
+   * @param surface_color - default: {r:0.01,g:0.01,b:0.6,a:0.6}, set the surface color
+   *                        and transparency
+   * if n is set as negative then the arrays xs,ys,zs of the object
+   * remain unchanged
+   */
+  processMessage(message, isRender = true)
+  {
+    if (message.n === undefined || message.n < 0) return;
+    this.setAll(message, isRender);
   }
 }
