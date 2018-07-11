@@ -1,5 +1,5 @@
 {
-  "name": "mrpt-web-js",
+  "name": "@mrpt/mrpt-web-js",
   "version": "1.0.0",
   "description": "JavaScript Library containing websocket server connection modules and 2d and 3d visualisation modules.",
   "main": "src/MRPTLib.js",
