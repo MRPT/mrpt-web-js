@@ -19,10 +19,10 @@ export default class CPlanarLaserScan extends THREE.Group {
    */
   constructor(options={}) {
     super();
-    this.n = options.n;
     this.xs = options.xs || [];
     this.ys = options.ys || [];
     this.zs = options.zs || [];
+    this.n = Math.max(this.xs.length, this.ys.length, this.zs.length);
     this.enable_line = true;
     this.enable_points = true;
     this.enable_surface = true;
@@ -152,10 +152,11 @@ export default class CPlanarLaserScan extends THREE.Group {
    */
   setParameters(options, isRender = true)
   {
-    this.n = options.n;
     this.xs = options.xs || [];
     this.ys = options.ys || [];
     this.zs = options.zs || [];
+    this.n = Math.max(this.xs.length, this.ys.length, this.zs.length);
+    console.log("n",this.n, "options", options);
     if (isRender) {
       this.render();
     }
@@ -219,7 +220,6 @@ export default class CPlanarLaserScan extends THREE.Group {
    */
   processMessage(message, isRender = true)
   {
-    if (message.n === undefined || message.n < 0) return;
     this.setAll(message, isRender);
   }
 }
