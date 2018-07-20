@@ -26,6 +26,8 @@
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.7.0",
     "chai": "^4.1.2",
+    "esdoc": "^1.1.0",
+    "esdoc-standard-plugin": "^1.0.0",
     "ify-loader": "^1.1.0",
     "jest": "^23.1.0",
     "mocha": "^5.2.0",

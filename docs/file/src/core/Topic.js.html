@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">src/core/Topic.js | mrpt-web-js</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="JavaScript Library containing websocket server connection modules and 2d and 3d visualisation modules."><meta property="twitter:card" content="summary"><meta property="twitter:title" content="mrpt-web-js"><meta property="twitter:description" content="JavaScript Library containing websocket server connection modules and 2d and 3d visualisation modules."></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-MRPTLIB">MRPTLIB</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#core">core</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/Message.js~Message.html">Message</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/Param.js~Param.html">Param</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/Service.js~Service.html">Service</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/ServiceRequest.js~ServiceRequest.html">ServiceRequest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/ServiceResponse.js~ServiceReponse.html">ServiceReponse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/Topic.js~Topic.html">Topic</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/WS.js~WS.html">WS</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/core/socketAdapter.js~SocketAdapter.html">SocketAdapter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-EventEmitter2">EventEmitter2</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#math">math</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/math/Pose.js~Pose.html">Pose</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/math/Quaternion.js~Quaternion.html">Quaternion</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/math/Transform.js~Transform.html">Transform</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/math/Vector3.js~Vector3.html">Vector3</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#meshes-material">meshes/material</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/meshes/material/Material.js~Material.html">Material</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#meshes-model">meshes/model</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/meshes/model/Arrow.js~Arrow.html">Arrow</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/meshes/model/CCylinder.js~CCylinder.html">CCylinder</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/meshes/model/COccupancyGrid.js~COccupancyGrid.html">COccupancyGrid</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/meshes/model/CPlanarLaserScan.js~CPlanarLaserScan.html">CPlanarLaserScan</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/meshes/model/CPointCloud.js~CPointCloud.html">CPointCloud</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/meshes/model/CPolyhedron.js~CPolyhedron.html">CPolyhedron</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/meshes/model/CornerXYZ.js~CornerXYZ.html">CornerXYZ</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/meshes/model/CornerXYZSimple.js~CornerXYZSimple.html">CornerXYZSimple</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/meshes/model/CubeMarker.js~CubeMarker.html">CubeMarker</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/meshes/model/Path.js~Path.html">Path</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/meshes/model/SphereMarker.js~SphereMarker.html">SphereMarker</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#meshes-scene">meshes/scene</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/meshes/scene/Scene.js~Scene.html">Scene</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#plots">plots</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/plots/CartesianPlane.js~CartesianPlane.html">CartesianPlane</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/core/Topic.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import Message from &apos;./Message&apos;
+
+const EventEmitter2 = require(&apos;eventemitter2&apos;).EventEmitter2
+/**
+ * Publish and/or subscribe to a topic in mrpt-web server.
+ *
+ * Emits the following events:
+ *  * &apos;warning&apos; - if there are any warning during the Topic creation
+ *  * &apos;message&apos; - the message data from server
+ */
+export default class Topic extends EventEmitter2 {
+  /**
+   * @constructor
+   * @param {Object} - object with the following keys
+   *  * ws - the MRPTLIB.WS connection handle
+   *  * name - the topic name, like /cmd_vel
+   *  * messageType - the message type, like &apos;std_msgs/String&apos;
+   *  * compression - the type of compression to use, like &apos;png&apos;
+   *  * throttle_rate - the rate (in ms in between messages) at which to throttle the topics
+   *  * queue_size - the queue created at server side used when subscribing (defaults to 100).
+   *  * latch - latch the topic when publishing
+   *  * queue_length - the queue legth at server side used when subscribing (defaults to true)
+   *  * reconnect_on_close - the flag to enable resubscription and readvertisement on close event(defaults to true).
+   */
+  constructor({
+    ws,
+    name,
+    messageType,
+    isAdvertised = false,
+    compression = &apos;none&apos;,
+    throttle_rate = 0,
+    latch = false,
+    queue_size = 100,
+    queue_length = 0,
+    reconnect_on_close = true
+  }) {
+    super();
+    this.ws = ws;
+    this.name = name;
+    this.messageType = messageType;
+    this.isAdvertised = isAdvertised;
+    this.compression = compression;
+    this.throttle_rate = throttle_rate;
+    this.latch = latch;
+    this.queue_length = queue_length;
+    this.queue_size = queue_size;
+    this.reconnect_on_close = reconnect_on_close;
+
+    // Check for valid compression type
+    // Currently no compression is supported
+    if (this.compression &amp;&amp; this.compression !== &apos;none&apos;) {
+      this.emit(&apos;warning&apos;, this.compression +
+      &apos;compression is not supported. No compression will be used&apos;);
+    }
+
+    // Check if the throttle rate is negative
+    if (this.throttle_rate &lt; 0) {
+      this.emit(&apos;warning&apos;, this.throttle_rate + &apos;is not allowed. Set to 0.&apos;);
+      this.throttle_rate = 0;
+    }
+
+    const that = this;
+    if(this.reconnect_on_close) {
+      this.callForSubscribeAndAdvertise = function(message) {
+        that.ws.callOnConnection(message);
+
+        that.waitForReconnect = false;
+        that.reconnectFunc = function() {
+          if(!that.waitForReconnect) {
+            that.waitForReconnect = true;
+            that.ws.callOnConnection(message);
+            that.ws.once(&apos;connection&apos;, function() {
+              that.waitForReconnect = false;
+            });
+          }
+        };
+        that.ws.on(&apos;close&apos;, that.reconnectFunc);
+      };
+    }
+    else {
+      this.callForSubscribeAndAdvertise = this.ws.callOnConnection;
+    }
+
+    this._messsageCallback = function(data) {
+      that.emit(&apos;message&apos;, new Message(data));
+    };
+  }
+  /**
+   * Eveerytime a message is published for the given topic, the callback
+   * will be called with the message object
+   *
+   * @param callback - function with the following params:
+   *  * message - the published message
+   */
+  subscribe(callback) {
+    if (typeof callback === &apos;function&apos;) {
+      this.on(&apos;message&apos;,callback);
+    }
+
+    if(this.subscribeId) { return; }
+    this.ws.on(this.name, this._messsageCallback);
+    this.subscribeId = `subscribe:${this.name}:${++this.ws.idCounter}`;
+
+    this.callForSubscribeAndAdvertise({
+      op: &apos;Subscriber.subscribe&apos;,
+      id: this.subscribeId,
+      v: this.ws.version,
+      params: {
+        type: this.messageType,
+        topic: this.name,
+        compression: this.compression,
+        throttle_rate: this.throttle_rate,
+        queue_length: this.queue_length
+      }
+    });
+  }
+  /**
+   * Unregisters as a subscriber for the topic. Unsubscribing stop remove
+   * all subscribe callbacks. To remove a callback, you must explicitly
+   * pass the callback function in.
+   *
+   * @param callback - the optional callback to unregister, if
+   *  * provided and other listeners are registered the topic won&apos;t
+   *  * unsubscribe, just stop emitting to the passed listener
+   */
+  unsubscribe(callback) {
+    if (callback) {
+      this.off(&apos;message&apos;, callback);
+      // If there is any other callbacks still subscribed don&apos;t
+      // unsubscribe
+      if(this.listeners(&apos;message&apos;).length) { return; }
+    }
+    if (!this.subscribeId) { return; }
+    // Note: Don&apos;t call this.removeAllListeners, allow client to handle that themselves
+    this.ws.off(this.name, this._messsageCallback);
+    if(this.reconnect_on_close) {
+      this.ws.off(&apos;close&apos;, this.reconnectFunc);
+    }
+    this.emit(&apos;unsubscribe&apos;);
+    this.ws.callOnConnection({
+      op: &apos;Subscriber.unsubscribe&apos;,
+      id: this.subscribeId,
+      v: this.ws.version,
+      params:{
+        topic: this.name
+      }
+    });
+    this.subscribeId = null;
+  }
+  /**
+   * Registers as a publisher for the topic.
+   */
+  advertise() {
+    if (this.isAdvertised) {
+      return;
+    }
+    this.advertiseId = `advertise:${this.name}:${++this.ws.idCounter}`;
+    this.callForSubscribeAndAdvertise({
+      op: &apos;Publisher.advertise&apos;,
+      id: this.advertiseId,
+      params:
+      {
+        type: this.messageType,
+        topic: this.name,
+        latch: this.latch,
+        queue_size: this.queue_size
+      }
+    });
+    this.isAdvertised = true;
+
+    if(!this.reconnect_on_close) {
+      const that = this;
+      this.ws.on(&apos;close&apos;, function() {
+        that.isAdvertised = false;
+      });
+    }
+  }
+  /**
+   * Unregisters as a publisher for the topic
+   */
+  unadvertise() {
+    if(!this.isAdvertised) {
+      return;
+    }
+    if(this.reconnect_on_close) {
+      this.ws.off(&apos;close&apos;, this.reconnectFunc);
+    }
+    this.emit(&apos;unadvertise&apos;);
+    this.ws.callOnConnection({
+      op: &apos;Publisher.unadvertise&apos;,
+      id: this.advertiseId,
+      params: {
+        topic: this.name
+      }
+    });
+    this.isAdvertised = false;
+  }
+  /**
+   * Publish the message.
+   *
+   * @param message - A MRPTLIB.Message object
+   */
+  publish(message) {
+    if(!this.isAdvertised) {
+      this.advertise();
+    }
+
+    const call = {
+      op : &apos;Publish&apos;,
+      id : `publish:${this.name}:${++this.ws.idCounter}`,
+      v : this.ws.version,
+      params : {
+        topic : this.name,
+        message : message,
+        latch : this.latch
+      }
+    };
+    this.ws.callOnConnection(call);
+  }
+}
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

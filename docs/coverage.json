@@ -1,0 +1,260 @@
+{
+  "coverage": "50.26%",
+  "expectCount": 189,
+  "actualCount": 95,
+  "files": {
+    "src/MRPTLib.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    },
+    "src/core/Message.js": {
+      "expectCount": 2,
+      "actualCount": 2,
+      "undocumentLines": []
+    },
+    "src/core/Param.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    },
+    "src/core/Service.js": {
+      "expectCount": 8,
+      "actualCount": 3,
+      "undocumentLines": [
+        4,
+        19,
+        20,
+        21,
+        23
+      ]
+    },
+    "src/core/ServiceRequest.js": {
+      "expectCount": 2,
+      "actualCount": 2,
+      "undocumentLines": []
+    },
+    "src/core/ServiceResponse.js": {
+      "expectCount": 2,
+      "actualCount": 2,
+      "undocumentLines": []
+    },
+    "src/core/Topic.js": {
+      "expectCount": 21,
+      "actualCount": 7,
+      "undocumentLines": [
+        3,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        81,
+        102,
+        157
+      ]
+    },
+    "src/core/WS.js": {
+      "expectCount": 16,
+      "actualCount": 9,
+      "undocumentLines": [
+        7,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ]
+    },
+    "src/core/socketAdapter.js": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        10
+      ]
+    },
+    "src/math/Pose.js": {
+      "expectCount": 6,
+      "actualCount": 4,
+      "undocumentLines": [
+        13,
+        14
+      ]
+    },
+    "src/math/Quaternion.js": {
+      "expectCount": 12,
+      "actualCount": 8,
+      "undocumentLines": [
+        17,
+        18,
+        19,
+        20
+      ]
+    },
+    "src/math/Transform.js": {
+      "expectCount": 5,
+      "actualCount": 3,
+      "undocumentLines": [
+        14,
+        15
+      ]
+    },
+    "src/math/Vector3.js": {
+      "expectCount": 8,
+      "actualCount": 5,
+      "undocumentLines": [
+        10,
+        11,
+        12
+      ]
+    },
+    "src/meshes/material/Material.js": {
+      "expectCount": 3,
+      "actualCount": 2,
+      "undocumentLines": [
+        2
+      ]
+    },
+    "src/meshes/model/Arrow.js": {
+      "expectCount": 9,
+      "actualCount": 5,
+      "undocumentLines": [
+        2,
+        62,
+        82,
+        109
+      ]
+    },
+    "src/meshes/model/CCylinder.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        2,
+        3
+      ]
+    },
+    "src/meshes/model/COccupancyGrid.js": {
+      "expectCount": 5,
+      "actualCount": 4,
+      "undocumentLines": [
+        3
+      ]
+    },
+    "src/meshes/model/CPlanarLaserScan.js": {
+      "expectCount": 22,
+      "actualCount": 6,
+      "undocumentLines": [
+        2,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        66,
+        91,
+        124
+      ]
+    },
+    "src/meshes/model/CPointCloud.js": {
+      "expectCount": 4,
+      "actualCount": 3,
+      "undocumentLines": [
+        2
+      ]
+    },
+    "src/meshes/model/CPolyhedron.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        2,
+        3
+      ]
+    },
+    "src/meshes/model/CornerXYZ.js": {
+      "expectCount": 7,
+      "actualCount": 3,
+      "undocumentLines": [
+        3,
+        13,
+        17,
+        21
+      ]
+    },
+    "src/meshes/model/CornerXYZSimple.js": {
+      "expectCount": 5,
+      "actualCount": 3,
+      "undocumentLines": [
+        2,
+        10
+      ]
+    },
+    "src/meshes/model/CubeMarker.js": {
+      "expectCount": 6,
+      "actualCount": 4,
+      "undocumentLines": [
+        2,
+        3
+      ]
+    },
+    "src/meshes/model/Path.js": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        2
+      ]
+    },
+    "src/meshes/model/SphereMarker.js": {
+      "expectCount": 6,
+      "actualCount": 4,
+      "undocumentLines": [
+        2,
+        3
+      ]
+    },
+    "src/meshes/scene/Scene.js": {
+      "expectCount": 22,
+      "actualCount": 9,
+      "undocumentLines": [
+        38,
+        44,
+        47,
+        55,
+        59,
+        65,
+        70,
+        74,
+        80,
+        81,
+        106,
+        111,
+        167
+      ]
+    },
+    "src/plots/CartesianPlane.js": {
+      "expectCount": 8,
+      "actualCount": 5,
+      "undocumentLines": [
+        2,
+        10,
+        15
+      ]
+    }
+  }
+}
