@@ -24,6 +24,7 @@
     "babel-core": "^6.26.3",
     "babel-env": "^2.4.1",
     "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
     "chai": "^4.1.2",
     "ify-loader": "^1.1.0",
     "jest": "^23.1.0",

@@ -1,8 +1,8 @@
 sudo: true
 
-cache:
-  directories:
-  - node_modules
+# cache:
+#   directories:
+#   - node_modules
 
 notifications:
   email: false
