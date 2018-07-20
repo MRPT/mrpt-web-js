@@ -1,13 +1,9 @@
 sudo: true
 
-# cache:
-#   directories:
-#   - node_modules
-
 notifications:
   email: false
 
-language: "node"
+language: node_js
 install:
   - npm i -g npm
   - npm install --only=dev
