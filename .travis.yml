@@ -4,6 +4,9 @@ notifications:
   email: false
 
 language: node_js
+node_js:
+  - lts/*
+
 install:
   - npm i -g npm
   - npm install --only=dev
