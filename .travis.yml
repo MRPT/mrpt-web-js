@@ -7,6 +7,7 @@ sudo: true
 notifications:
   email: false
 
+language: "node"
 install:
   - npm i -g npm
   - npm install --only=dev
