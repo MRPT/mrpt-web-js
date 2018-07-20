@@ -36,7 +36,8 @@ export default class WS extends EventEmitter2 {
         this.socket = Object.assign(new WebSocket(url), SocketAdapter.socketAdapter(this));
         if (this.socket.readyState !== 'undefined' && this.socket.readyState === 1)
         {
-          this.socket.isConnected = true;
+          console.log("here");
+          this.isConnected = true;
         }
     }
     /**
@@ -49,7 +50,7 @@ export default class WS extends EventEmitter2 {
       this.socket = Object.assign($socket, SocketAdapter.socketAdapter(this));
       if (this.socket.readyState !== 'undefined' && this.socket.readyState === 1)
       {
-        this.socket.isConnected = true;
+        this.isConnected = true;
       }
     }
     /**
