@@ -18,3 +18,7 @@ before_script:
 script:
   - npm run build
 
+deploy:
+  provider: surge
+  project: ./docs/
+  domain: mrpt-web.surge.sh
