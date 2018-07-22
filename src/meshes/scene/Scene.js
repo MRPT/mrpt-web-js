@@ -1,22 +1,42 @@
 import * as THREE from 'three'
 import TrackballControls from './trackballcontrols';
 /**
- * Scene class is used to render an interactive 3D scene.
+ * Scene class is used to render an interactive 3D scene
+ * The camera is controlled using TrackballControls controller
+ * @see https://threejs.org/docs/index.html#api/core/Object3D
+ * @see https://threejs.org/docs/index.html#manual/introduction/Creating-a-scene
  *
- * @constructor
- * @param options - object with following kets:
- * * divID - the ID of the div to place the viewer in
- * * width - the initial width, in pixels, of the canvas
- * * height - the initial height, in pixels, of the canvas
- * * background (optional) - the color to render the background
- * * alpha (optional) - the alpha of the background
- * * antialias (optional) - if antialiasing should be used
- * * intensity (optional) - the lightning intensity setting to use
- * * cameraPosition (optional) - the starting position of the camera
+ * @example
+ * let scene = new MRPTLIB.Scene({
+ *  divID: "someDIV-ID",
+ *  width: 800,
+ *  height: 600,
+ *  cameraPose: {
+ *    x: -3,
+ *    y: -3,
+ *    z: 5
+ *  }
+ * });
+ *
+ * // add object to scene
+ * scene.addObject(obj);   // where obj is an object derived from THREE.Object3D or similar classes
+ *
+ * // removing the object obj from the scene
+ * scene.removeObject(obj);
+ *
  */
 export default class Scene {
   /**
    * @constructor
+   * @param options - object with following kets:
+   * @param {string} options.divID - the ID of the div to place the viewer in
+   * @param {number} options.width - the initial width, in pixels, of the canvas
+   * @param {number} options.height - the initial height, in pixels, of the canvas
+   * @param {?string} options.background -format: '#dddddd' (optional) - the color to render the background
+   * @param {?float} [options.alpha = 1.0] (optional) - the alpha of the background
+   * @param {?boolean} options.antialias (optional) - if antialiasing should be used
+   * @param {float} [options.intensity = 0.66] (optional) - the lightning intensity setting to use
+   * @param {?object{x,y,z}} [options.cameraPosition = {x:5,y:5,z:5}] (optional) - the starting position of the camera
    */
   constructor(options = {}) {
     const divID = options.divID;
@@ -102,7 +122,7 @@ export default class Scene {
     // this.cube.rotation.y += 0.1;
     this.renderer.render(this.scene, this.camera);
   }
-  // TODO add code for stopping the animation
+  /** @todo add code for stopping the animation */
   stop() {
     if(this.started) {
       // Stop the animation loop

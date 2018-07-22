@@ -10,7 +10,7 @@ export default class CPointCloud extends THREE.Points {
    * colorFromDepth_min {R,G,B} -float values of RGB channels
    * colorFromDepth_max {R,G,B} - float values of RGB channels
    * pointSmooth {bool} - flag
-   *
+   * @todo add processMessage and colorConfiguration methods
    */
   constructor(options = {}) {
     let pointSize = options.pointSize || 1.0;

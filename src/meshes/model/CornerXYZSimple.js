@@ -1,8 +1,17 @@
 import * as THREE from 'three'
+/**
+ * @example
+ * corner = new MRPTLIB.model.CornerXYZSimple({size: 0.5});
+ * scene.add(corner);
+ *
+ * corner.setPosition(1, 2, 3);
+ * @todo orientation of the corner should alsp be configurable
+ */
 export default class CornerXYZSimple extends THREE.AxesHelper {
   /**
    * @constructor
-   * @param {Object} options -default is 1
+   * @param {Object} options - with the following keys
+   * @param {?number} options.size - default 1
    */
   constructor(options = {}) {
     const size = options.size || 1;

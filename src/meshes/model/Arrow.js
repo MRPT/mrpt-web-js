@@ -1,13 +1,41 @@
 import * as THREE from 'three'
+/**
+ * Arrow is used to indicate the position and orientation (or direction) of a body.
+ * It can be used as a stationary marker
+ * or used to depict a moving body
+ * @example
+ * // to depict a moving body
+ * arrow = new MRPTLIB.model.Arrow();
+ *
+ * // add arrow to the scene
+ * scene.addObject(arrow);
+ *
+ * // process messages
+ * arrow.processMessage({position: {x: 1,y: 2, z: 3}, orientation: {x: 0.3, y: 0.6, z: 7}});
+ *
+ * // The processMessage can be used in a loop or with event emitter
+ * // to process the position and orientation whenever a change is emitted
+ *
+ * @example
+ * // as a stationary object
+ * arrow = new MRPTLIB.model.Arrow({x0:0.3,y0:0.4,z0:0.5, x1:2,y1:2.4,z1:4.2});
+ * // x0,y0,z0 are the origin keys and x1,y1,z1 are destination keys
+ *
+ * // add arrow to the scene
+ * scene.addObject(arrow);
+ *
+ * // processMessage can still be used, among other member functions
+ */
 export default class Arrow extends THREE.Mesh {
   /**
    *
-   * @param {Object} options - with possible keys
-   * origin - arrow starting coords
-   * destination -arrow starting coords
-   * headRatio - the ratio of the head of the arrow to its entire length
-   * shaft radius - radius of the cylinder part of the arrow
-   * head radius - radius of the bottom of the cone part of the arrow
+   * The arrow starts from the origin coordinates. It extends and points to the destination coordinate.
+   * @param {?object} options - with possible keys
+   * @param {?object} options.origin - format: {x0,y0,z0} arrow starting coords, default {x0:0,y0:0,z0:0}
+   * @param {?object} options.destination - format: {x1,y1,z1} arrow destination coords, default {x1:1,y1:0,z1:0}
+   * @param {?number} options.headRatio - the ratio of the head of the arrow to its entire length, default: head length is kept fixed as 0.2
+   * @param {?number} options.shaftRadius - radius of the cylinder part of the arrow
+   * @param {?number} options.headRadius - radius of the bottom of the cone part of the arrow
    */
   constructor(options = {}) {
     let origin, destination, direction, headLength;
@@ -74,7 +102,7 @@ export default class Arrow extends THREE.Mesh {
   /**
    * Set the direction of this arrow to that of the given vector.
    *
-   * @param direction - the direction to set this arrow
+   * @param {THREE.Vector3} direction - the direction to set this arrow
    */
   setDirection(direction) {
     let axis = new THREE.Vector3(0, 1, 0).cross(direction);
@@ -85,7 +113,7 @@ export default class Arrow extends THREE.Mesh {
   /**
    * Set this arrow to be the given length.
    *
-   * @param length - the new length of the arrow
+   * @param {number} length - the new length of the arrow
    */
   setLength(length) {
     if(this.length) {
@@ -114,5 +142,24 @@ export default class Arrow extends THREE.Mesh {
         this.material.dispose();
     }
   };
-
+  /**
+   *
+   * @param {object} message - with the following keys
+   * @param {object} position - {x,y,z} , contains the coordinateds of the starting of arrow (base of cyliner)
+   * @param {object} orientation - {x,y,z}, contains the direction vector of the arrow
+   * @param {?number} length - length of the arrow
+   */
+  processMessage(message) {
+    let x = message.position.x;
+    let y = message.position.y;
+    let z = message.position.z;
+    this.setPosition(new THREE.Vector3(x, y, z));
+    x = message.orientation.x;
+    y = message.orientation.y;
+    z = message.orientation.z;
+    this.setDirection(new THREE.Vector3(x, y, z));
+    if (message.length) {
+      this.setLength(message.length);
+    }
+  }
 }
