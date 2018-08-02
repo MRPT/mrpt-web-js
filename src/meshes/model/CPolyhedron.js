@@ -1,4 +1,8 @@
 import * as THREE from 'three'
+/**
+ * @deprecated
+ * @todo - add methods for orientation, position etc
+ */
 export default class CPolyhedron extends THREE.Mesh {
   constructor(options = {}) {
     let vertices = options.vertices||[

@@ -7,11 +7,50 @@ const EventEmitter2 = require('eventemitter2').EventEmitter2
  * Emits the following events:
  *  * 'warning' - if there are any warning during the Topic creation
  *  * 'message' - the message data from server
+ * @example
+ * import MRPTLIB from 'mrpt-web-js';
+ * ws = new MRPTLIB.WS({url: 'ws://127.0.0.1:3000'});
+ *
+ * var goal = new MRPTLIB.Topic({
+ *  ws: ws,
+ *  name: '/cmd_vel',
+ *  messageType: 'someMessageType'
+ * });
+ *
+ * const pose  = new MRPTLIB.Message({
+ *  linear: {
+ *    x: 0.1,
+ *    y: 0.2,
+ *    z: 0.3,
+ *  },
+ *  angular: {
+ *    x: -0.1,
+ *    y: -0.2,
+ *    z: -0.3
+ *  }
+ * });
+ *
+ * goal.publish(pose);
+ * // advertise and unadvertise requirement is dependant
+ * // on the websocket server.
+ * @example
+ * const listener = new MRPTLIB.Topic({
+ *  ws: ws,   // same as previous example
+ *  name: '/path',
+ *  messageType: 'dummy1'
+ * });
+ *
+ * listener.subscribe(function(message) {
+ *  console.log("Received message on" + listener.name + ' : ', message);
+ * });
+ *
+ * // Here the message will be logged as when received from the
+ * // websocket server
  */
 export default class Topic extends EventEmitter2 {
   /**
    * @constructor
-   * @param {Object} - object with the following keys
+   * @param {object} - object with the following keys
    *  * ws - the MRPTLIB.WS connection handle
    *  * name - the topic name, like /cmd_vel
    *  * messageType - the message type, like 'std_msgs/String'
@@ -86,10 +125,10 @@ export default class Topic extends EventEmitter2 {
     };
   }
   /**
-   * Eveerytime a message is published for the given topic, the callback
+   * Everytime a message is published for the given topic, the callback
    * will be called with the message object
    *
-   * @param callback - function with the following params:
+   * @param {function} callback - function with the following params:
    *  * message - the published message
    */
   subscribe(callback) {
@@ -119,7 +158,7 @@ export default class Topic extends EventEmitter2 {
    * all subscribe callbacks. To remove a callback, you must explicitly
    * pass the callback function in.
    *
-   * @param callback - the optional callback to unregister, if
+   * @param {function} callback - the optional callback to unregister, if
    *  * provided and other listeners are registered the topic won't
    *  * unsubscribe, just stop emitting to the passed listener
    */
@@ -198,7 +237,7 @@ export default class Topic extends EventEmitter2 {
   /**
    * Publish the message.
    *
-   * @param message - A MRPTLIB.Message object
+   * @param {object} message - JSON object or MRPTLIB.Message object
    */
   publish(message) {
     if(!this.isAdvertised) {

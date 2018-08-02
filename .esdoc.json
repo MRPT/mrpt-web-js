@@ -1,0 +1,36 @@
+{
+  "source": "./src",
+  "destination": "./docs",
+  "excludes": ["trackballcontrols.js", "index.js","\\.config\\.js$"],
+  "plugins": [
+    {
+      "name": "esdoc-standard-plugin",
+      "option": {
+        "lint": {"enable": true},
+        "coverage": {"enable": true},
+        "typeInference": {"enable": true},
+        "brand": {
+          "logo": "./assets/logo.png",
+          "title": "MRPT WEB-JS",
+          "repository": "https://github.com/rachit173/mrpt-web-js"
+        },
+        "manual": {
+          "asset": "./manual/assets",
+          "files": [
+            "./manual/overview.md",
+            "./manual/core.md",
+            "./manual/visualization2d.md",
+            "./manual/visualization3d.md"
+          ]
+        },
+        "test": {
+          "source": "./tests/",
+          "interfaces": ["describe", "it", "context", "suite", "test"],
+          "includes": ["(spec|Spec|test|Test)\\.js$"],
+          "excludes": [""]
+        }
+      }
+    },
+    {"name": "esdoc-ecmascript-proposal-plugin", "option": {"all": true}}
+  ]
+}

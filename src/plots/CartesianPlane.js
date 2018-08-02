@@ -1,8 +1,26 @@
 import Plotly from 'plotly.js-cartesian-dist'
+/**
+ * @example
+ * let trace0 = {
+ *   x: [1, 2, 3, 4],
+ *   y: [10, 15, 13, 17],
+ *   mode: 'lines+markers',
+ *   type: 'scatter'
+ * };
+ *
+ * let plot = new MRPTLIB.plots.CartesianPlane("some-html-container-id", trace0);
+ *
+ * let trace1 = new MRPTLIB.plots.ScatterPlot.processTrace([1, 5, 2],[3, 7, 5],1); // (x coords, y coords, size of points)
+ * let trace2 = new MRPTLIB.plots.LinePlot.processTrace([1, 3, 4],[2, 1, 4]);
+ *
+ * plot.addTrace(trace1);
+ * plot.addTrace(trace2);
+ *
+ */
 export default class CartesianPlane {
   /**
    * @param { String } divID - the container id
-   * @param { Array } tracers - array containing different graph traces
+   * @param { object } ...tracers - array containing different graph traces
    */
   constructor(divID, ...tracers) {
     console.log(divID);

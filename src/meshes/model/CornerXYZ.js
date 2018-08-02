@@ -1,9 +1,18 @@
 import * as THREE from 'three'
 import { Arrow } from '.';
+/**
+ * @example
+ * corner = new MRPTLIB.model.CornerXYZ({size: 0.5});
+ * scene.add(corner);
+ *
+ * corner.setPosition(1, 2, 3);
+ * @todo orientation of the corner should alsp be configurable
+ */
 export default class CornerXYZ extends THREE.Group {
   /**
    *
    * @param {Object} options - with the following keys
+   * @param {?number} options.size - default 1
    */
   constructor(options = {}) {
     super();
@@ -36,7 +45,7 @@ export default class CornerXYZ extends THREE.Group {
   }
   /**
    *
-   * @param {float} s
+   * @param {float} s - the length of the axes
    */
   setSize(s) {
     this.xarrow.setLength(s);

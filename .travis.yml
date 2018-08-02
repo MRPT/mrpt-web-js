@@ -17,4 +17,11 @@ before_script:
 
 script:
   - npm run build
+  - npm run build:docs
 
+deploy:
+  provider: surge
+  skip_cleanup: true
+  project: ./docs/
+  domain: mrpt-web.surge.sh
+  on: dev-docs
