@@ -5,3 +5,4 @@ build
 npm-debug.log
 .vscode
 docs
+test/unit/coverage

@@ -1,5 +1,5 @@
 import { expect } from 'chai'
-import MRPTLIB from '../src/MRPTLib'
+import MRPTLIB from '@/MRPTLib'
 
 const lib = new MRPTLIB.WS({url:"ws://127.0.0.1:8080"});
 

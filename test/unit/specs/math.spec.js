@@ -1,5 +1,5 @@
 import { expect } from 'chai'
-import MRPTLIB from '../src/MRPTLib'
+import MRPTLIB from '@/MRPTLib'
 describe('math-ds-tests', function() {
 
   describe('quaternion', function() {

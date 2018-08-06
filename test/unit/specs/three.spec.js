@@ -1,4 +1,4 @@
-import MRPTLIB from '../src/MRPTLib'
+import MRPTLIB from '@/MRPTLib'
 import { expect } from 'chai'
 
 describe('test _3D lib', function() {

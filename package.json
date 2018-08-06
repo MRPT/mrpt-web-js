@@ -5,7 +5,7 @@
   "main": "src/MRPTLib.js",
   "scripts": {
     "docs": "./node_modules/.bin/esdoc && http-server ./docs/",
-    "test": "mocha --compilers js:babel-core/register tests/*.test.js -w",
+    "unit": "jest --config test/unit/jest.conf.js --coverage",
     "prebuild": "rimraf dist",
     "build": "npm-run-all build:*",
     "build:main": "./node_modules/.bin/babel --copy-files --out-dir dist --ignore *.test.js src",
