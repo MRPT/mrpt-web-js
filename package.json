@@ -1,17 +1,17 @@
 {
-  "name": "@mrpt/mrpt-web-js",
+  "name": "@mrpt/mrpt-web",
   "version": "1.0.1",
   "description": "JavaScript Library containing websocket server connection modules and 2d and 3d visualisation modules.",
   "main": "src/MRPTLib.js",
   "scripts": {
-    "docs": "./node_modules/.bin/esdoc && http-server ./docs/",
+    "docs": "esdoc && http-server ./docs/",
     "unit": "jest --config test/unit/jest.conf.js --coverage",
     "prebuild": "rimraf dist",
     "build": "npm-run-all build:*",
-    "build:main": "./node_modules/.bin/babel --copy-files --out-dir dist --ignore *.test.js src",
+    "build:main": "babel --copy-files --out-dir dist --ignore *.test.js src",
     "build:umd": "webpack --output-filename MRPTLib.umd.js",
     "build:umd.min": "webpack --output-filename MRPTLib.umd.min.js -p",
-    "build:docs": "./node_modules/.bin/esdoc"
+    "build:docs": "esdoc"
   },
   "keywords": [
     "MRPT",
@@ -56,5 +56,13 @@
     "presets": [
       "env"
     ]
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrpt/mrpt-web-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mrpt/mrpt-web-js/issues"
+  },
+  "homepage": "https://github.com/mrpt/mrpt-web-js#readme"
 }
