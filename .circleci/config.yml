@@ -14,21 +14,20 @@ jobs:
     <<: *defaults  
     steps:
       - checkout
-
       - restore_cache:
           keys:
           - v1-dependencies-
-
       - run: npm install
       - run:
           name: Run Unit tests
           command: npm run unit
-
+      - run:
+          name: Upload Codecov
+          command: bash <(curl -s https://codecov.io/bash)
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-
-
       - persist_to_workspace:
           root: ~/repo
           paths: .
