@@ -1,5 +1,6 @@
 # MRPT-WEB-JS
 [![CircleCI](https://circleci.com/gh/MRPT/mrpt-web-js.svg?style=svg)](https://circleci.com/gh/MRPT/mrpt-web-js)
+[![codecov](https://codecov.io/gh/MRPT/mrpt-web-js/branch/master/graph/badge.svg)](https://codecov.io/gh/MRPT/mrpt-web-js)
 
 Contains the modules for connection management, data transfer between MRPT-WEB (WebSocket RPC Server).
 Also contains the 2D and 3D visualisation modules.
